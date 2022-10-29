@@ -1,1 +1,16 @@
-<p>cadastrar works!</p>
+<section>
+  <h1>Castrar Produtos</h1>
+  <form [formGroup]="produtoCadastroForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome do Produto</mat-label>
+      <input matInput placeholder="Nome do Produto" />
+    </mat-form-field>
+    <mat-error *ngIf="false">
+      <span style="color: red">Campo Obrigatório</span>
+    </mat-error>
+
+    <button type="submit" mat-raised-button color="primary">
+      Cadastrar Produto
+    </button>
+  </form>
+</section>
