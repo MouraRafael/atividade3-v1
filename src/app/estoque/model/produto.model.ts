@@ -1,4 +1,4 @@
-import { EstoqueCategoria } from "src/app/estoque/enums/categoria.enum";
+import { EstoqueCategoria } from "../enums/categoria.enum";
 export interface produtoModel{
   id:string;
   nomeProduto:string;
