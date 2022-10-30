@@ -43,17 +43,10 @@ export class EstoqueService {
   }
 
   remover(id:string):void{
-    let produtos = this.listar();
-    let novosProdutos:ProdutoModel[] = [];
+    let produtos:ProdutoModel[] = this.listar();
 
-    for(let i = 0; i< produtos.length; i++){
-      if(produtos[i].id !== id){
-        novosProdutos.push(produtos[i]);
-      }
-    }
+    produtos = produtos.filter(produto => produto.id !== id);
 
-    produtos = novosProdutos;
-
-    localStorage.setItem('estoque',JSON.stringify(produtos))
+    localStorage.setItem('estoque',JSON.stringify(produtos));
   }
 }
