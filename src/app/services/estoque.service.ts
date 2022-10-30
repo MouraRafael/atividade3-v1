@@ -28,4 +28,19 @@ export class EstoqueService {
 
     return lista;
   }
+
+  listarPorID(id:string):ProdutoModel{
+    const produtos:ProdutoModel[] = this.listar();
+    let produto!:ProdutoModel;
+
+    for(let i = 0; i<produtos.length; i++){
+      if(produtos[i].id === id){
+        produto = produtos[i];
+        break
+      }
+    }
+
+    return produto;
+
+  }
 }
