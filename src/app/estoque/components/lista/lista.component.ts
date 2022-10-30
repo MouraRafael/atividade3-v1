@@ -34,9 +34,9 @@ export class ListaComponent implements OnInit {
 
   /***********Labels */
   estoqueFornecedoresLabel(fornecedor:number){
-    return EstoqueFornecedoresLabel.get(fornecedor);
+    return EstoqueFornecedoresLabel.get(fornecedor)!;
   }
   estoqueCategoriaLabel(categoria:number){
-    return EstoqueCategoriaLabel.get(categoria);
+    return EstoqueCategoriaLabel.get(categoria)!;
   }
 }
