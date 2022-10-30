@@ -29,7 +29,7 @@ export class EstoqueService {
     return lista;
   }
 
-  listarPorID(id:string):ProdutoModel{
+  localizarPorID(id:string):ProdutoModel{
     const produtos:ProdutoModel[] = this.listar();
     let produto!:ProdutoModel;
 
