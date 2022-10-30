@@ -6,7 +6,7 @@
   <th>Fornecedor</th>
   <th>Validade</th>
   <th>Categoria</th>
-  <th>Gerenciar</th>
+  <th colspan="2">Gerenciar</th>
 </tr>
 <tr *ngFor="let produto of produtos">
 
@@ -17,7 +17,9 @@
   <td>{{estoqueCategoriaLabel(produto.categoria)}}</td>
   <td>
     <mat-icon>edit</mat-icon>
-    <mat-icon>delete</mat-icon>
+  </td>
+  <td>
+    <mat-icon><a href="#" (click)="remover(produto.id)">delete</a></mat-icon>
   </td>
 </tr>
 <tr *ngIf="!produtos?.length">
