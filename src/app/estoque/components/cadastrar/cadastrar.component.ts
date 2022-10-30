@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from "@angular/forms";
+import { produtoModel } from '../../model/produto.model';
 
 @Component({
   selector: 'app-cadastrar',
@@ -7,11 +8,28 @@ import { FormBuilder,FormGroup, Validators } from "@angular/forms";
   styleUrls: ['./cadastrar.component.css']
 })
 export class CadastrarComponent implements OnInit {
-  produtoCadastroForm!:FormGroup
+  produtoCadastroForm!:FormGroup;
 
-  constructor() { }
+  constructor(private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
+    this.produtoCadastroForm = this.formBuilder.group({
+    nomeProduto:['',[Validators.required,Validators.pattern(/^[a-zA-Z]/)]],
+    quantidade:['s',[Validators.required,Validators.pattern(/[0-9]/)]],
+    fornecedor:['',[Validators.required]],
+    validade:['',[Validators.required]],
+    categoria:['',[Validators.required]],
+
+    });
   }
 
+
+  cadastrar():void{
+    const estoque = this.produtoCadastroForm.getRawValue() as produtoModel;
+    estoque.id = "asdf";
+    console.log(estoque)
+  }
+
+
+  get nomeProduto() { return this.produtoCadastroForm.get("nomeProduto")!}
 }
