@@ -1,8 +1,8 @@
 export enum EstoqueCategoria{
-  CAMISAS,
-  CALCAS,
-  SAPATOS,
-  SHORTS,
-  CAMISETAS,
-  BERMUDAS,
+  CARNES,
+  FRUTAS,
+  LEGUMES,
+  VEGETAIS,
+  FRIOS,
+  LATICINIOS,
 }

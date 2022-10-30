@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from "@angular/forms";
 import { EstoqueCategoria } from '../../enums/categoria.enum';
+import { EstoqueFornecedores } from '../../enums/fornecedores.enum';
 import { produtoModel } from '../../model/produto.model';
 
 @Component({
@@ -10,12 +11,18 @@ import { produtoModel } from '../../model/produto.model';
 })
 export class CadastrarComponent implements OnInit {
   categorias = [
-    [EstoqueCategoria.BERMUDAS,"Bermudas"],
-    [EstoqueCategoria.CALCAS,"Calças"],
-    [EstoqueCategoria.CAMISAS,"Camisas"],
-    [EstoqueCategoria.CAMISETAS,"Camisetas"],
-    [EstoqueCategoria.SAPATOS,"Sapatos"],
-    [EstoqueCategoria.SHORTS,"Shorts"]
+    [EstoqueCategoria.CARNES,"Carnes"],
+    [EstoqueCategoria.FRUTAS,"Frutas"],
+    [EstoqueCategoria.LEGUMES,"Legumes"],
+    [EstoqueCategoria.VEGETAIS,"Vegetais"],
+    [EstoqueCategoria.FRIOS,"Frios"],
+    [EstoqueCategoria.LATICINIOS,"Laticínio"]
+  ]
+  fornecedores = [
+    [EstoqueFornecedores.JOAO_BARROS,"Frigorífico João Barros"],
+    [EstoqueFornecedores.MXS_VEGETAIS, "MxS Vegetais Frescos"],
+    [EstoqueFornecedores.FALLIN_IMPORTADOS,"Fall In Importados Ltda."],
+    [EstoqueFornecedores.DEMETER_LATICINIOS,"Demeter Laticínios & Mantimentos"]
   ]
   produtoCadastroForm!:FormGroup;
 
@@ -41,4 +48,5 @@ export class CadastrarComponent implements OnInit {
 
 
   get nomeProduto() { return this.produtoCadastroForm.get("nomeProduto")!}
+  get categoria() { return this.produtoCadastroForm.get("categoria") }
 }
