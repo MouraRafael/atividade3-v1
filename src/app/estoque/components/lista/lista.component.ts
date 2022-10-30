@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EstoqueFornecedoresLabel } from '../../enums/fornecedores.enum';
+import { EstoqueCategoriaLabel } from '../../enums/categoria.enum';
 import { ProdutoModel } from '../../model/produto.model';
 import { EstoqueService } from '../../services/estoque.service';
 
@@ -9,6 +11,7 @@ import { EstoqueService } from '../../services/estoque.service';
 })
 export class ListaComponent implements OnInit {
   produtos!:ProdutoModel[];
+
 
   constructor(private estoqueService:EstoqueService) { }
 
@@ -27,4 +30,13 @@ export class ListaComponent implements OnInit {
 
 
   editar():void{}
+
+
+  /***********Labels */
+  estoqueFornecedoresLabel(fornecedor:number){
+    return EstoqueFornecedoresLabel.get(fornecedor);
+  }
+  estoqueCategoriaLabel(categoria:number){
+    return EstoqueCategoriaLabel.get(categoria);
+  }
 }

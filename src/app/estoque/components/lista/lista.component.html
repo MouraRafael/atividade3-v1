@@ -1,1 +1,23 @@
-<p>lista works!</p>
+<h1>Listagem de Produtos no Estoque</h1>
+<table>
+<tr>
+  <th>Nome do Produto</th>
+  <th>Quantidade</th>
+  <th>Fornecedor</th>
+  <th>Validade</th>
+  <th>Categoria</th>
+</tr>
+<tr *ngFor="let produto of produtos">
+
+  <td>{{produto.nome}}</td>
+  <td>{{produto.quantidade}}</td>
+  <td>{{estoqueFornecedoresLabel(produto.fornecedor)}}</td>
+  <td>{{produto.validade}}</td>
+  <td>{{produto.categoria}}</td>
+</tr>
+<tr *ngIf="produtos.length == 0">
+  <td colspan="5">
+    Nenhum Produto Cadastrado
+  </td>
+</tr>
+</table>
