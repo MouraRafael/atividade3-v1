@@ -4,7 +4,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Nome do Produto</mat-label>
-      <input matInput formControlName="nomeProduto" placeholder="Nome do Produto" />
+      <input matInput formControlName="nome" placeholder="Nome do Produto" />
     </mat-form-field>
     <mat-error *ngIf="nomeProduto.errors?.['required']">
       <span style="color: red">Campo Obrigatório</span>
@@ -51,7 +51,7 @@
 
 
 
-    <button type="submit" mat-raised-button color="primary">
+    <button type="submit" mat-raised-button color="primary" [disabled]="produtoCadastroForm.status != 'VALID'">
       Cadastrar Produto
     </button>
     <p>{{nomeProduto.value}}</p>

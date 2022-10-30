@@ -30,7 +30,7 @@ export class CadastrarComponent implements OnInit {
 
   ngOnInit(): void {
     this.produtoCadastroForm = this.formBuilder.group({
-    nomeProduto:['',[Validators.required,Validators.pattern(/^[a-zA-Z]/)]],
+    nome:['',[Validators.required,Validators.pattern(/^[a-zA-Z]/)]],
     quantidade:['',[Validators.required,Validators.pattern(/[0-9]/)]],
     fornecedor:['',[Validators.required]],
     validade:['',[Validators.required]],
@@ -43,10 +43,10 @@ export class CadastrarComponent implements OnInit {
   cadastrar():void{
     const estoque = this.produtoCadastroForm.getRawValue() as produtoModel;
     estoque.id = "asdf";
-    console.log(estoque)
+    console.log(typeof estoque,estoque)
   }
 
 
-  get nomeProduto() { return this.produtoCadastroForm.get("nomeProduto")!}
+  get nomeProduto() { return this.produtoCadastroForm.get("nome")!}
   get categoria() { return this.produtoCadastroForm.get("categoria") }
 }
