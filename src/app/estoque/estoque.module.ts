@@ -8,6 +8,7 @@ import { MatButtonModule } from "@angular/material/button"
 import { MatSelectModule } from "@angular/material/select";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { EstoqueService } from '../services/estoque.service';
 
 const materialModules = [
   ReactiveFormsModule,
@@ -25,6 +26,7 @@ const materialModules = [
     FormsModule,
     ...materialModules,
   ],
-  exports: [CadastrarComponent]
+  exports: [CadastrarComponent],
+  providers:[EstoqueService]
 })
 export class EstoqueModule { }
