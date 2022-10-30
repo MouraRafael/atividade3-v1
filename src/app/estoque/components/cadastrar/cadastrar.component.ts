@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from "@angular/forms";
 import { EstoqueCategoria } from '../../enums/categoria.enum';
 import { EstoqueFornecedores } from '../../enums/fornecedores.enum';
-import { produtoModel } from '../../model/produto.model';
+import { ProdutoModel } from '../../model/produto.model';
 
 @Component({
   selector: 'app-cadastrar',
@@ -41,7 +41,7 @@ export class CadastrarComponent implements OnInit {
 
 
   cadastrar():void{
-    const estoque = this.produtoCadastroForm.getRawValue() as produtoModel;
+    const estoque = this.produtoCadastroForm.getRawValue() as ProdutoModel;
     estoque.id = "asdf";
     console.log(typeof estoque,estoque)
   }
