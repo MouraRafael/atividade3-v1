@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from "@angular/forms";
-import { EstoqueService } from 'src/app/services/estoque.service';
+import { EstoqueService } from 'src/app/estoque/services/estoque.service';
 import { EstoqueCategoria } from '../../enums/categoria.enum';
 import { EstoqueFornecedores } from '../../enums/fornecedores.enum';
 import { ProdutoModel } from '../../model/produto.model';

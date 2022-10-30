@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ProdutoModel } from '../estoque/model/produto.model';
+import { ProdutoModel } from '../model/produto.model';
 
 import * as uuid from 'uuid';
 
@@ -39,8 +39,21 @@ export class EstoqueService {
         break
       }
     }
-
     return produto;
+  }
 
+  remover(id:string):void{
+    let produtos = this.listar();
+    let novosProdutos:ProdutoModel[] = [];
+
+    for(let i = 0; i< produtos.length; i++){
+      if(produtos[i].id !== id){
+        novosProdutos.push(produtos[i]);
+      }
+    }
+
+    produtos = novosProdutos;
+
+    localStorage.setItem('estoque',JSON.stringify(produtos))
   }
 }

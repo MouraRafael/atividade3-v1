@@ -8,7 +8,8 @@ import { MatButtonModule } from "@angular/material/button"
 import { MatSelectModule } from "@angular/material/select";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { EstoqueService } from '../services/estoque.service';
+import { EstoqueService } from './services/estoque.service';
+import { ListagemComponent } from './components/listagem/listagem.component';
 
 const materialModules = [
   ReactiveFormsModule,
@@ -19,7 +20,7 @@ const materialModules = [
 ]
 
 @NgModule({
-  declarations: [CadastrarComponent],
+  declarations: [CadastrarComponent, ListagemComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,
