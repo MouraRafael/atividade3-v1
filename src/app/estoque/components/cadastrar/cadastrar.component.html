@@ -1,13 +1,49 @@
 <section>
   <h1>Cadastrar Produtos</h1>
-  <form [formGroup]="produtoCadastroForm">
+  <form [formGroup]="produtoCadastroForm" (submit)="cadastrar()">
+
     <mat-form-field appearance="fill">
       <mat-label>Nome do Produto</mat-label>
-      <input matInput placeholder="Nome do Produto" />
+      <input matInput formControlName="nomeProduto" placeholder="Nome do Produto" />
+    </mat-form-field>
+    <mat-error *ngIf="nomeProduto.errors?.['required']">
+      <span style="color: red">Campo Obrigatório</span>
+    </mat-error>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Quantidade</mat-label>
+      <input matInput type="number" formControlName="quantidade" placeholder="Nº Produtos" />
     </mat-form-field>
     <mat-error *ngIf="false">
       <span style="color: red">Campo Obrigatório</span>
     </mat-error>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Fornecedor</mat-label>
+      <input matInput type="text" formControlName="fornecedor" placeholder="Nome do Fornecedor" />
+    </mat-form-field>
+    <mat-error *ngIf="false">
+      <span style="color: red">Campo Obrigatório</span>
+    </mat-error>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Validade</mat-label>
+      <input matInput type="date" formControlName="validade" placeholder="Quantos" />
+    </mat-form-field>
+    <mat-error *ngIf="false">
+      <span style="color: red">Campo Obrigatório</span>
+    </mat-error>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Categoria</mat-label>
+      <input matInput type="number" formControlName="categoria" placeholder="Categoria do Produto" />
+    </mat-form-field>
+    <mat-error *ngIf="false">
+      <span style="color: red">Campo Obrigatório</span>
+    </mat-error>
+
+
+
 
     <button type="submit" mat-raised-button color="primary">
       Cadastrar Produto
