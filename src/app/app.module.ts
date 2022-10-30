@@ -3,16 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CadastrarComponent } from './estoque/components/cadastrar/cadastrar.component';
+import { EstoqueModule } from './estoque/estoque.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CadastrarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    EstoqueModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
