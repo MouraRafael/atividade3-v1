@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder,FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-cadastrar',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cadastrar.component.css']
 })
 export class CadastrarComponent implements OnInit {
+  produtoCadastroForm!:FormGroup
 
   constructor() { }
 
