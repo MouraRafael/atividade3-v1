@@ -10,13 +10,17 @@ import { MatSelectModule } from "@angular/material/select";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { EstoqueService } from './services/estoque.service';
 import { ListagemComponent } from './components/listagem/listagem.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 const materialModules = [
-  ReactiveFormsModule,
-  MatFormFieldModule,
   MatButtonModule,
+  MatFormFieldModule,
+  MatIconModule,
   MatInputModule,
-  MatSelectModule
+  MatTableModule,
+  MatSelectModule,
+  ReactiveFormsModule,
 ]
 
 @NgModule({
