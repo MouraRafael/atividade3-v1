@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from "@angular/forms";
+import { EstoqueService } from 'src/app/services/estoque.service';
 import { EstoqueCategoria } from '../../enums/categoria.enum';
 import { EstoqueFornecedores } from '../../enums/fornecedores.enum';
 import { ProdutoModel } from '../../model/produto.model';
@@ -26,7 +27,7 @@ export class CadastrarComponent implements OnInit {
   ]
   produtoCadastroForm!:FormGroup;
 
-  constructor(private formBuilder:FormBuilder) { }
+  constructor(private formBuilder:FormBuilder, private estoqueService: EstoqueService) { }
 
   ngOnInit(): void {
     this.produtoCadastroForm = this.formBuilder.group({
@@ -42,8 +43,7 @@ export class CadastrarComponent implements OnInit {
 
   cadastrar():void{
     const estoque = this.produtoCadastroForm.getRawValue() as ProdutoModel;
-    estoque.id = "asdf";
-    console.log(typeof estoque,estoque)
+    this.estoqueService.cadastro(estoque);
   }
 
 
