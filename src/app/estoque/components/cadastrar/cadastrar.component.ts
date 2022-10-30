@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from "@angular/forms";
+import { EstoqueCategoria } from '../../enums/categoria.enum';
 import { produtoModel } from '../../model/produto.model';
 
 @Component({
@@ -8,6 +9,14 @@ import { produtoModel } from '../../model/produto.model';
   styleUrls: ['./cadastrar.component.css']
 })
 export class CadastrarComponent implements OnInit {
+  categorias = [
+    [EstoqueCategoria.BERMUDAS,"Bermudas"],
+    [EstoqueCategoria.CALCAS,"Calças"],
+    [EstoqueCategoria.CAMISAS,"Camisas"],
+    [EstoqueCategoria.CAMISETAS,"Camisetas"],
+    [EstoqueCategoria.SAPATOS,"Sapatos"],
+    [EstoqueCategoria.SHORTS,"Shorts"]
+  ]
   produtoCadastroForm!:FormGroup;
 
   constructor(private formBuilder:FormBuilder) { }

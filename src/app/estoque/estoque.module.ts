@@ -5,6 +5,7 @@ import { CadastrarComponent } from './components/cadastrar/cadastrar.component';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button"
+import { MatSelectModule } from "@angular/material/select";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
@@ -12,7 +13,8 @@ const materialModules = [
   ReactiveFormsModule,
   MatFormFieldModule,
   MatButtonModule,
-  MatInputModule
+  MatInputModule,
+  MatSelectModule
 ]
 
 @NgModule({

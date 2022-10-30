@@ -36,7 +36,10 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Categoria</mat-label>
-      <input matInput type="number" formControlName="categoria" placeholder="Categoria do Produto" />
+      <!-- <input matInput type="number" formControlName="categoria" placeholder="Categoria do Produto" /> -->
+      <mat-select formControlName="categoria">
+        <mat-option *ngFor="let cat of categorias" [value]="cat[0]">{{cat[1]}}</mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-error *ngIf="false">
       <span style="color: red">Campo Obrigatório</span>
@@ -48,5 +51,6 @@
     <button type="submit" mat-raised-button color="primary">
       Cadastrar Produto
     </button>
+    <p>{{nomeProduto.value}}</p>
   </form>
 </section>
