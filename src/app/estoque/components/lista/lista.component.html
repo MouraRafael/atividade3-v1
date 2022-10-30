@@ -6,16 +6,21 @@
   <th>Fornecedor</th>
   <th>Validade</th>
   <th>Categoria</th>
+  <th>Gerenciar</th>
 </tr>
 <tr *ngFor="let produto of produtos">
 
   <td>{{produto.nome}}</td>
   <td>{{produto.quantidade}}</td>
   <td>{{estoqueFornecedoresLabel(produto.fornecedor)}}</td>
-  <td>{{produto.validade}}</td>
-  <td>{{produto.categoria}}</td>
+  <td>{{produto.validade | date: 'dd/MM/yyyy'}}</td>
+  <td>{{estoqueCategoriaLabel(produto.categoria)}}</td>
+  <td>
+    <mat-icon>edit</mat-icon>
+    <mat-icon>delete</mat-icon>
+  </td>
 </tr>
-<tr *ngIf="produtos.length == 0">
+<tr *ngIf="!produtos?.length">
   <td colspan="5">
     Nenhum Produto Cadastrado
   </td>

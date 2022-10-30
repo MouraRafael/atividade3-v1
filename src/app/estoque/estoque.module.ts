@@ -6,6 +6,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button"
 import { MatSelectModule } from "@angular/material/select";
+import { MatIconModule } from "@angular/material/icon";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { EstoqueService } from './services/estoque.service';
@@ -16,7 +17,8 @@ const materialModules = [
   MatFormFieldModule,
   MatButtonModule,
   MatInputModule,
-  MatSelectModule
+  MatSelectModule,
+  MatIconModule,
 ]
 
 @NgModule({
