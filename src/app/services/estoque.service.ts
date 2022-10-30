@@ -12,10 +12,20 @@ export class EstoqueService {
 
 
   cadastro(produto:ProdutoModel){
-
     produto.id = uuid.v4();
-    localStorage['estoque'] = JSON.stringify(produto);
+
+    let estoque:ProdutoModel[] = this.listar();
+    estoque.push(produto);
+
+    localStorage.setItem('estoque', JSON.stringify(estoque))
+
     console.log("\n",produto,localStorage['estoque'])
 
+  }
+
+  listar():ProdutoModel[]{
+    let lista = JSON.parse(localStorage.getItem('estoque')!) as ProdutoModel[] ?? [];
+
+    return lista;
   }
 }
