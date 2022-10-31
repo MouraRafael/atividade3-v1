@@ -3,6 +3,7 @@ import { EstoqueFornecedoresLabel } from '../../enums/fornecedores.enum';
 import { EstoqueCategoriaLabel } from '../../enums/categoria.enum';
 import { ProdutoModel } from '../../model/produto.model';
 import { EstoqueService } from '../../services/estoque.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-lista',
@@ -11,13 +12,17 @@ import { EstoqueService } from '../../services/estoque.service';
 })
 export class ListaComponent implements OnInit {
   produtos!:ProdutoModel[];
+  displayedColumns:string[] =  ['nome','quantidade', 'fornecedor', 'validade','categoria','editar','remover']
+  dataSource!:MatTableDataSource<ProdutoModel>;
+  clickedRows!:ProdutoModel;
 
 
   constructor(private estoqueService:EstoqueService) { }
 
   ngOnInit(): void {
     this.produtos = this.estoqueService.listar();
-
+    this.dataSource = new MatTableDataSource(this.produtos);
+    console.log(this.produtos,this.dataSource)
   }
 
   listar():ProdutoModel[]{
