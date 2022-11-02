@@ -1,0 +1,15 @@
+.nav-container{
+  width: 90%;
+  margin: auto;
+  margin-top: 1%;
+  padding-bottom: 1rem;
+}
+
+.btn-menu{
+  margin-left: 1rem;
+}
+
+.body-container{
+  width: 90%;
+  margin: auto;
+}
