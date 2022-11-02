@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
 import { EstoqueService } from 'src/app/estoque/services/estoque.service';
 import { EstoqueCategoria } from '../../enums/categoria.enum';
 import { EstoqueFornecedores } from '../../enums/fornecedores.enum';
@@ -27,7 +28,10 @@ export class CadastrarComponent implements OnInit {
   ]
   produtoCadastroForm!:FormGroup;
 
-  constructor(private formBuilder:FormBuilder, private estoqueService: EstoqueService) { }
+  constructor(
+    private formBuilder:FormBuilder,
+    private estoqueService: EstoqueService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.produtoCadastroForm = this.formBuilder.group({
@@ -44,6 +48,7 @@ export class CadastrarComponent implements OnInit {
   cadastrar():void{
     const estoque = this.produtoCadastroForm.getRawValue() as ProdutoModel;
     this.estoqueService.cadastro(estoque);
+    this.router.navigate(["/estoque/lista"])
   }
 
 
