@@ -1,59 +1,76 @@
 <section>
   <h1>Cadastrar Produtos</h1>
-  <form [formGroup]="produtoCadastroForm" (submit)="cadastrar()">
+  <mat-card>
+    <mat-card-content>
+      <form [formGroup]="produtoCadastroForm" (submit)="cadastrar()">
+        <div class="form-block">
+          <mat-form-field appearance="fill">
+            <mat-label>Nome do Produto</mat-label>
+            <input matInput formControlName="nome" placeholder="Nome do Produto" />
+          </mat-form-field>
+          <mat-error *ngIf="nomeProduto.errors?.['required']">
+            <span style="color: red">Campo Obrigatório</span>
+          </mat-error>
+        </div>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Nome do Produto</mat-label>
-      <input matInput formControlName="nome" placeholder="Nome do Produto" />
-    </mat-form-field>
-    <mat-error *ngIf="nomeProduto.errors?.['required']">
-      <span style="color: red">Campo Obrigatório</span>
-    </mat-error>
+        <div class="form-block">
+          <mat-form-field appearance="fill">
+            <mat-label>Quantidade</mat-label>
+            <input matInput type="number" formControlName="quantidade" placeholder="Nº Produtos" />
+          </mat-form-field>
+          <mat-error *ngIf="false">
+            <span style="color: red">Campo Obrigatório</span>
+          </mat-error>
+        </div>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Quantidade</mat-label>
-      <input matInput type="number" formControlName="quantidade" placeholder="Nº Produtos" />
-    </mat-form-field>
-    <mat-error *ngIf="false">
-      <span style="color: red">Campo Obrigatório</span>
-    </mat-error>
+        <div class="form-block">
+          <mat-form-field appearance="fill">
+            <mat-label>Fornecedor</mat-label>
+            <!-- <input matInput type="text" formControlName="fornecedor" placeholder="Nome do Fornecedor" /> -->
+            <mat-select formControlName="fornecedor">
+              <mat-option *ngFor="let forn of fornecedores" [value]="forn[0]">{{forn[1]}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-error *ngIf="false">
+            <span style="color: red">Campo Obrigatório</span>
+          </mat-error>
+        </div>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Fornecedor</mat-label>
-      <!-- <input matInput type="text" formControlName="fornecedor" placeholder="Nome do Fornecedor" /> -->
-      <mat-select formControlName="fornecedor">
-        <mat-option *ngFor="let forn of fornecedores" [value]="forn[0]">{{forn[1]}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-error *ngIf="false">
-      <span style="color: red">Campo Obrigatório</span>
-    </mat-error>
+        <div class="form-block">
+          <mat-form-field appearance="fill">
+            <mat-label>Categoria</mat-label>
+            <!-- <input matInput type="number" formControlName="categoria" placeholder="Categoria do Produto" /> -->
+            <mat-select formControlName="categoria" placeholder="Categoria" required>
+              <mat-option *ngFor="let cat of categorias" [value]="cat[0]">{{cat[1]}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-error *ngIf="categoria?.errors?.['required']">
+            <span style="color: red">Campo Obrigatório</span>
+          </mat-error>
+        </div>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Validade</mat-label>
-      <input matInput type="date" formControlName="validade" placeholder="Quantos" />
-    </mat-form-field>
-    <mat-error *ngIf="false">
-      <span style="color: red">Campo Obrigatório</span>
-    </mat-error>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Categoria</mat-label>
-      <!-- <input matInput type="number" formControlName="categoria" placeholder="Categoria do Produto" /> -->
-      <mat-select formControlName="categoria" placeholder="Categoria" required>
-        <mat-option *ngFor="let cat of categorias" [value]="cat[0]">{{cat[1]}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-error *ngIf="categoria?.errors?.['required']">
-      <span style="color: red">Campo Obrigatório</span>
-    </mat-error>
-
+        <div class="form-block">
+          <mat-form-field appearance="fill">
+            <mat-label>Validade</mat-label>
+            <input matInput type="date" formControlName="validade" placeholder="Quantos" />
+          </mat-form-field>
+          <mat-hint style="margin-left: 1%; color: red;">Lembrar de conferir a data</mat-hint>
+          <mat-error *ngIf="false">
+            <span style="color: red">Campo Obrigatório</span>
+          </mat-error>
+        </div>
 
 
 
-    <button type="submit" mat-raised-button color="primary" [disabled]="produtoCadastroForm.status != 'VALID'">
-      Cadastrar Produto
-    </button>
-    <p>{{nomeProduto.value}}</p>
-  </form>
+
+
+        <div>
+          <button type="submit" mat-raised-button color="primary" [disabled]="produtoCadastroForm.status != 'VALID'">
+            Cadastrar Produto
+          </button>
+        </div>
+        <p>{{nomeProduto.value}}</p>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </section>
