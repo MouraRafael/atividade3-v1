@@ -34,7 +34,7 @@ export class ListaComponent implements OnInit {
   }
 
 
-  editar():void{}
+  editar(id:string):void{}
 
 
   /***********Labels */

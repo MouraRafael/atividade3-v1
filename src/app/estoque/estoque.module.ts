@@ -13,6 +13,8 @@ import { MatCardModule } from "@angular/material/card";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { EstoqueService } from './services/estoque.service';
 import { ListaComponent } from './components/lista/lista.component';
+import { EditarComponent } from './components/editar/editar.component';
+import { RouterLink } from '@angular/router';
 
 const materialModules = [
   ReactiveFormsModule,
@@ -23,10 +25,11 @@ const materialModules = [
   MatIconModule,
   MatTableModule,
   MatCardModule,
+  RouterLink
 ]
 
 @NgModule({
-  declarations: [CadastrarComponent, ListaComponent],
+  declarations: [CadastrarComponent, ListaComponent, EditarComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,
