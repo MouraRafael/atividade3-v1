@@ -16,7 +16,7 @@
         <div class="form-block">
           <mat-form-field appearance="fill">
             <mat-label>Quantidade</mat-label>
-            <input matInput type="number" formControlName="quantidade" placeholder="Nº Produtos" />
+            <input matInput min="0" type="number" formControlName="quantidade" placeholder="Nº Produtos" />
           </mat-form-field>
           <mat-error *ngIf="false">
             <span style="color: red">Campo Obrigatório</span>

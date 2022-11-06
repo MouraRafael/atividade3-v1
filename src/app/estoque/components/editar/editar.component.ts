@@ -45,7 +45,7 @@ export class EditarComponent implements OnInit {
 
     this.produtoEditarForm = this.formBuilder.group({
       nome:[this.itemEstoque.nome,[Validators.required,Validators.pattern(/^[a-zA-Z]/)]],
-      quantidade:[this.itemEstoque.quantidade,[Validators.required,Validators.pattern(/[0-9]/)]],
+      quantidade:[this.itemEstoque.quantidade,[Validators.required,Validators.pattern(/^[0-9]/)]],
       fornecedor:[this.itemEstoque.fornecedor,[Validators.required]],
       validade:[this.itemEstoque.validade,[Validators.required]],
       categoria:[this.itemEstoque.categoria,[Validators.required]],

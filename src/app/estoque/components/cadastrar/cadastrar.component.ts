@@ -36,7 +36,7 @@ export class CadastrarComponent implements OnInit {
   ngOnInit(): void {
     this.produtoCadastroForm = this.formBuilder.group({
     nome:['',[Validators.required,Validators.pattern(/^[a-zA-Z]/)]],
-    quantidade:['',[Validators.required,Validators.pattern(/[0-9]/)]],
+    quantidade:['',[Validators.required,Validators.pattern(/^[0-9]/)]],
     fornecedor:['',[Validators.required]],
     validade:['',[Validators.required]],
     categoria:['',[Validators.required]],
