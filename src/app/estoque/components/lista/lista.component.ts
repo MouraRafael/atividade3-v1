@@ -4,6 +4,7 @@ import { EstoqueCategoriaLabel } from '../../enums/categoria.enum';
 import { ProdutoModel } from '../../model/produto.model';
 import { EstoqueService } from '../../services/estoque.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista',
@@ -17,7 +18,7 @@ export class ListaComponent implements OnInit {
   clickedRows!:ProdutoModel;
 
 
-  constructor(private estoqueService:EstoqueService) { }
+  constructor(private estoqueService:EstoqueService, private router: Router) { }
 
   ngOnInit(): void {
     this.produtos = this.estoqueService.listar();
@@ -34,7 +35,9 @@ export class ListaComponent implements OnInit {
   }
 
 
-  editar(id:string):void{}
+  editar(id:string):void{
+    this.router.navigate(["/estoque/editar",id])
+  }
 
 
   /***********Labels */

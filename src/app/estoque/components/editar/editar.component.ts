@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProdutoModel } from '../../model/produto.model';
+import { EstoqueService } from '../../services/estoque.service';
 
 @Component({
   selector: 'app-editar',
@@ -7,15 +9,16 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./editar.component.css']
 })
 export class EditarComponent implements OnInit {
-  id!:string;
+  itemEstoque!:ProdutoModel;
 
   constructor(
+    private estoqueService: EstoqueService,
     private route:ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
-    this.id = id;
+    this.itemEstoque = this.estoqueService.localizarPorID(id);
   }
 
 }
