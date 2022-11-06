@@ -1,8 +1,8 @@
 <section>
-  <h1>Cadastrar Produtos</h1>
+  <h1>Editar</h1>
   <mat-card>
     <mat-card-content>
-      <form [formGroup]="produtoCadastroForm" (submit)="cadastrar()">
+      <form [formGroup]="produtoEditarForm" (submit)="editar()">
         <div class="form-block">
           <mat-form-field appearance="fill">
             <mat-label>Nome do Produto</mat-label>
@@ -16,7 +16,7 @@
         <div class="form-block">
           <mat-form-field appearance="fill">
             <mat-label>Quantidade</mat-label>
-            <input matInput type="number" min="0" formControlName="quantidade" placeholder="Nº Produtos" />
+            <input matInput min="0" type="number" formControlName="quantidade" placeholder="Nº Produtos" />
           </mat-form-field>
           <mat-error *ngIf="false">
             <span style="color: red">Campo Obrigatório</span>
@@ -65,8 +65,8 @@
 
 
         <div>
-          <button type="submit" mat-raised-button color="primary" [disabled]="produtoCadastroForm.status != 'VALID'">
-            Cadastrar Produto
+          <button type="submit" mat-raised-button color="primary" [disabled]="produtoEditarForm.status != 'VALID'">
+            Editar Produto
           </button>
         </div>
       </form>

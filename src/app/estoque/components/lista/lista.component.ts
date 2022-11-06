@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { EstoqueFornecedoresLabel } from '../../enums/fornecedores.enum';
+import { EstoqueCategoriaLabel } from '../../enums/categoria.enum';
 import { ProdutoModel } from '../../model/produto.model';
 import { EstoqueService } from '../../services/estoque.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista',
@@ -9,12 +13,17 @@ import { EstoqueService } from '../../services/estoque.service';
 })
 export class ListaComponent implements OnInit {
   produtos!:ProdutoModel[];
+  displayedColumns:string[] =  ['nome','quantidade', 'fornecedor', 'validade','categoria','editar','remover']
+  dataSource!:MatTableDataSource<ProdutoModel>;
+  clickedRows!:ProdutoModel;
 
-  constructor(private estoqueService:EstoqueService) { }
+
+  constructor(private estoqueService:EstoqueService, private router: Router) { }
 
   ngOnInit(): void {
     this.produtos = this.estoqueService.listar();
-
+    this.dataSource = new MatTableDataSource(this.produtos);
+    console.log(this.produtos,this.dataSource)
   }
 
   listar():ProdutoModel[]{
@@ -26,5 +35,16 @@ export class ListaComponent implements OnInit {
   }
 
 
-  editar():void{}
+  editar(id:string):void{
+    this.router.navigate(["/estoque/editar",id])
+  }
+
+
+  /***********Labels */
+  estoqueFornecedoresLabel(fornecedor:number){
+    return EstoqueFornecedoresLabel.get(fornecedor)!;
+  }
+  estoqueCategoriaLabel(categoria:number){
+    return EstoqueCategoriaLabel.get(categoria)!;
+  }
 }

@@ -49,4 +49,15 @@ export class EstoqueService {
 
     localStorage.setItem('estoque',JSON.stringify(produtos));
   }
+
+  editar(produto:ProdutoModel){
+    let produtos = this.listar();
+    produtos.forEach((p,i,produtos)=>{
+      if(produto.id === p.id){
+        produtos[i] = produto;
+      }
+    })
+
+    localStorage.setItem('estoque',JSON.stringify(produtos));
+  }
 }
